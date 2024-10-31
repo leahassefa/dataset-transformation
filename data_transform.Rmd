@@ -20,10 +20,10 @@ transformed_data <- transform_function(mtcars)
 transformed_data
 ```
 ```{r}
-second_transform_function <- function(data) {
+second_transform_function <- function(data_new) {
   # Creates a new column named row_sum with the sum of each row's numeric values
-  data$row_sum <- rowSums(data[sapply(data, is.numeric)])
-  return(data)
+  data_new$row_sum <- rowSums(data_new[sapply(data_new, is.numeric)])
+  return(data_new)
 }
 #Apply function to mtcars dataset
 transformed_data <- second_transform_function(mtcars)

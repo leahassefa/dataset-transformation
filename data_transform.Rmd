@@ -12,11 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 data("mtcars")
 transform_function <- function(data) {
-  #Returns only the first 10 rows of the dataset
+  # Returns only the first 10 rows of the dataset
   data[1:10, ]
 }
-#Running the function of the mtcars dataset
+# Running the function of the mtcars dataset
 transformed_data <- transform_function(mtcars)
+transformed_data
+```
+```{r}
+second_transform_function <- function(data) {
+  # Creates a new column named row_sum with the sum of each row's numeric values
+  data$row_sum <- rowSums(data[sapply(data, is.numeric)])
+  return(data)
+}
+#Apply function to mtcars dataset
+transformed_data <- second_transform_function(mtcars)
 transformed_data
 ```
 
